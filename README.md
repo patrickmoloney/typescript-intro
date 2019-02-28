@@ -1,3 +1,0 @@
-# Typescript & SASS Intro
-
-- WIP
