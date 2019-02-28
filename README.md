@@ -1,3 +1,3 @@
-# typescript-intro
+# Typescript & SASS Intro
 
-WIP
+- WIP
