@@ -1,9 +1,9 @@
 {
   "extends": "tslint:recommended",
-  "rulesDirectory": ["path/to/custom/rules/directory/", "another/path/"],
+  "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
       "max-line-length": {
-          "options": [12]
+          "options": [250]
       },
       "new-parens": true,
       "no-arg": true,
@@ -17,7 +17,7 @@
   },
   "jsRules": {
       "max-line-length": {
-          "options": [12]
+          "options": [250]
       }
   }
 }

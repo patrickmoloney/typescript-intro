@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: './'
+    publicPath: ""
   },
   module: {
     rules: [{
@@ -28,7 +28,8 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    inline: true,
+    stats: "minimal",
     compress: true,
     port: 8080
   },

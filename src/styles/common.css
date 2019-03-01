@@ -11,14 +11,17 @@ body {
 }
 
 header {
-  width: calc(100% - 160px);
+  width: 100%;
   color: #ffffff;
   background-color: #0084ff;
-  padding: 20px 80px;
+  padding: 20px 0;
 }
 
 header h1 {
   margin: 0;
+  position: relative;
+  width: 200px;
+  left: calc(10% - 10px);
 }
 
 main {
@@ -28,8 +31,4 @@ main {
   margin: 0;
   min-height: calc(100vh - 62px);
   background-color: #fff;
-}
-
-main .container {
-  padding: 25px 40px;
 }
