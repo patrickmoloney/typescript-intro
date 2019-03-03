@@ -1,1 +1,1 @@
-// Add TODO's Core Logic / State Management Here
+// Add TODO Core Logic / State Management Here

@@ -2,6 +2,12 @@
   padding: 25px 40px;
 }
 
+.todo-container li {
+  list-style: none;
+  padding: 10px;
+  border-top: #CCC 1px solid;
+}
+
 .todo-add-control {
   position: relative;
   width: 80%;
