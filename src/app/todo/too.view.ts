@@ -17,10 +17,8 @@ export class TodoView {
 
   onAddClick(callback: (element: JQuery<HTMLElement>) => void) {
     this.$addButton.on('click', (event) => {
-      console.log('assa', this.$addInput)
       callback(this.$addInput);
     });
-
   }
 
   onButtonClick(callback: Function) {

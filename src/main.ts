@@ -1,6 +1,5 @@
 // Bootstrap Application Here
-import './styles/common.css';
-import './styles/todo.css';
+import './styles/main.scss';
 import { AppView } from './app/app';
 import $ from 'jquery';
 

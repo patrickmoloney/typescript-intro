@@ -1,39 +1,44 @@
-import { Todo } from "./todo.model";
-import { TodoView } from "./too.view";
+import { Todo } from './todo.model';
+import { TodoView } from './too.view';
+import { TodoStore } from './todo.store';
 
 // Add TODO's Core Logic / State Management Here
 
 export class TodoControl {
-  todos: Todo[] = [];
+  todos: Array<Todo> = [];
   todoView: TodoView = new TodoView();
+  store: TodoStore<Todo[]>;
 
   constructor() {
-    console.log('initial TodoControl:')
-    this.todos = [
-      new Todo({
-        title: 'Test 1'
-      }),
+    this.store = new TodoStore();
+  }
+
+  initialise() {
+    this.setTo([
       new Todo({
         title: 'Test 2'
       }),
       new Todo({
         title: 'Test 3'
       })
-    ];
+    ]);
+    this.setEventHandles();
   }
 
-  initialise() {
-    console.log('initial too:');
+  setTo(todos: Todo[]){
+    this.todos = todos;
     this.todoView.render(this.todos);
+    this.store.setStore({key: 'store', value: this.todos});
+  }
+
+  setEventHandles(){
     this.todoView.onAddClick((input: JQuery<HTMLElement>) => {
-      console.log('A input: ', input[0])
       this.todos.push(new Todo({ title: input.val() as string }));
       input.val('');
-      this.todoView.render(this.todos);
     });
   }
 
-  completed(): Todo[] {
+  completed(): Array<Todo> {
     return this.todos.filter((t) => t.completed);
   }
 
