@@ -1,4 +1,4 @@
-import { Todo } from './todo.model';
+import { Todo, ITodo } from './todo.model';
 import { TodoStore } from './todo.store';
 import { TodoView } from './todo.view';
 
@@ -14,7 +14,7 @@ const DefaultTodoConfigs = [
 export class TodoControl {
   private todos: Todo[] = [];
   private todoView: TodoView;
-  private store: TodoStore<Todo[]>;
+  private store: TodoStore<ITodo[]>;
 
   constructor() {
     this.todoView = new TodoView();
@@ -23,7 +23,7 @@ export class TodoControl {
 
   public initialise() {
     const todos = this.store.getStore("todo-store");
-    this.setTo(todos.length ? todos : DefaultTodoConfigs.map((todo) => new Todo(todo)));
+    this.setTo(todos.length ? todos.map((todo: ITodo) => new Todo(todo)) : DefaultTodoConfigs.map((todo) => new Todo(todo)));
     this.setEventHandles();
   }
 
@@ -34,7 +34,10 @@ export class TodoControl {
   private setTo(todos: Todo[]) {
     this.todos = todos;
     this.todoView.render(this.todos);
-    this.store.setStore({ key: "todo-store", value: this.todos });
+    this.store.setStore({
+      key: "todo-store",
+      value: this.todos.map((todo) => todo.asObject())
+    });
   }
 
   private setEventHandles() {

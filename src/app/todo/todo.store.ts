@@ -5,7 +5,7 @@ export class TodoStore<T extends object> {
     this.localStore = sessionStorage;
   }
 
-  public getStore(key: string) {
+  public getStore(key: string): T {
     return JSON.parse(this.localStore.getItem(key) || "[]");
   }
 

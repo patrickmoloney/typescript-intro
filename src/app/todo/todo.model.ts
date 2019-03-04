@@ -1,6 +1,6 @@
 import { guid } from "../utils/helpers";
 
-interface ITodo {
+export interface ITodo {
   id?: string;
   title: string;
   completed?: boolean;
@@ -20,12 +20,20 @@ export class Todo {
   }
 
   constructor(todo: ITodo) {
-    this.id = guid();
+    this.id = todo.id || guid();
     this.title = todo.title;
     this.completed = todo.completed || false;
   }
 
   public toggle() {
     this.completed = !this.completed;
+  }
+
+  public asObject(): ITodo {
+    return {
+      completed: this.completed,
+      id: this.id,
+      title: this.title
+    };
   }
 }
