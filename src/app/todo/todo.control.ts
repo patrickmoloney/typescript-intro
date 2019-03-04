@@ -22,8 +22,8 @@ export class TodoControl {
   }
 
   public initialise() {
-    const todoes = this.store.getStore("todo-store") || DefaultTodoConfigs.map((todo) => new Todo(todo));
-    this.setTo(todoes);
+    const todos = this.store.getStore("todo-store") || DefaultTodoConfigs.map((todo) => new Todo(todo));
+    this.setTo(todos);
     this.setEventHandles();
   }
 
