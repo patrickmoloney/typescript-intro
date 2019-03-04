@@ -10,4 +10,12 @@ A simple todo applications foundation.
 
 ## Note
 
-see branch 'complete' for a rough estimation of the completed project.
+if you're getting -
+
+`
+  events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+`
+
+Install `npm i webpack-dev-server -g` should resolve the issue.

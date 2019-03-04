@@ -6,7 +6,7 @@ export class TodoStore<T extends object> {
   }
 
   public getStore(key: string) {
-    return JSON.parse(this.localStore.getItem(key) || "");
+    return JSON.parse(this.localStore.getItem(key) || "[]");
   }
 
   public setStore(item: {key: string, value: T}) {
