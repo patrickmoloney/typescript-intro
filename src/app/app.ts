@@ -2,14 +2,14 @@ import { TodoControl } from "./todo/todo.control";
 
 // Defined how the application is Initialised
 
-export class AppView{
-  control = new TodoControl();
+export class AppView {
+  private control = new TodoControl();
 
-  constructor(){
-    console.log('AppView Started');
+  constructor() {
+    console.log("AppView Started");
   }
 
-  initialise(){
+  public initialise() {
     this.control.initialise();
   }
 }

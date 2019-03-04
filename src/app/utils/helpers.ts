@@ -4,5 +4,5 @@ function token(): string {
 }
 
 export function guid(): string {
-  return [token(), token(), token()].join('-');
+  return [token(), token(), token()].join("-");
 }

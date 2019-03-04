@@ -1,45 +1,62 @@
 import { Todo } from './todo.model';
-import { TodoView } from './too.view';
 import { TodoStore } from './todo.store';
+import { TodoView } from './todo.view';
 
-// Add TODO's Core Logic / State Management Here
+const DefaultTodoConfigs = [
+  {
+    title: "Todo 1"
+  },
+  {
+    title: "Todo 2"
+  },
+];
 
 export class TodoControl {
-  todos: Array<Todo> = [];
-  todoView: TodoView = new TodoView();
-  store: TodoStore<Todo[]>;
+  private todos: Todo[] = [];
+  private todoView: TodoView;
+  private store: TodoStore<Todo[]>;
 
   constructor() {
+    this.todoView = new TodoView();
     this.store = new TodoStore();
   }
 
-  initialise() {
-    this.setTo([
-      new Todo({
-        title: 'Test 2'
-      }),
-      new Todo({
-        title: 'Test 3'
-      })
-    ]);
+  public initialise() {
+    const todoes = this.store.getStore("todo-store") || DefaultTodoConfigs.map((todo) => new Todo(todo));
+    this.setTo(todoes);
     this.setEventHandles();
   }
 
-  setTo(todos: Todo[]){
+  public completed(): Todo[] {
+    return this.todos.filter((t) => t.completed);
+  }
+
+  private setTo(todos: Todo[]) {
     this.todos = todos;
     this.todoView.render(this.todos);
-    this.store.setStore({key: 'store', value: this.todos});
+    this.store.setStore({ key: "todo-store", value: this.todos });
   }
 
-  setEventHandles(){
+  private setEventHandles() {
+    // Add Todo
     this.todoView.onAddClick((input: JQuery<HTMLElement>) => {
       this.todos.push(new Todo({ title: input.val() as string }));
-      input.val('');
+      this.setTo(this.todos);
+      input.val("");
     });
-  }
-
-  completed(): Array<Todo> {
-    return this.todos.filter((t) => t.completed);
+    // Remove Todo
+    this.todoView.onButtonClick((id: string) => {
+      this.todos = this.todos.filter((todo) => todo.id !== id);
+      this.setTo(this.todos);
+    });
+    // Complete Todo
+    this.todoView.onCheckboxClick((id: string) => {
+      const checkedTodo = this.todos.find((todo: Todo) => todo.id === id);
+      if (checkedTodo) {
+        checkedTodo.toggle();
+        this.setTo(this.todos);
+      }
+    });
   }
 
 }

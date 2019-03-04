@@ -1,26 +1,31 @@
 import { guid } from "../utils/helpers";
 
-// Create a Todo Class to define what a TODO is.
-
-interface TodoConfig {
+interface ITodo {
   id?: string;
   title: string;
   completed?: boolean;
 }
 
 export class Todo {
-  id: string;
-  title: string;
-  completed: boolean;
+  public title: string;
+  public completed: boolean;
+  private _id!: string;
 
-  constructor(todo: TodoConfig) {
+  get id(): string {
+    return this._id;
+  }
+
+  set id(id: string) {
+    this._id = id;
+  }
+
+  constructor(todo: ITodo) {
     this.id = guid();
     this.title = todo.title;
     this.completed = todo.completed || false;
   }
 
-  toggle() {
+  public toggle() {
     this.completed = !this.completed;
   }
-
 }
