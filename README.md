@@ -6,6 +6,7 @@ A simple todo applications foundation.
 
 - [HyunSeob's Typescript TodoMVC](https://github.com/HyunSeob/typescript-TodoMVC)
 - [Typescript's Docs](https://www.typescriptlang.org/docs/home.html)
+- [Typescript Design Patterns](https://github.com/torokmark/design_patterns_in_typescript)
 
 ## Note
 
