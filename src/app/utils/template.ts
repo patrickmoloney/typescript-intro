@@ -9,5 +9,6 @@ export function todoTpl(todo: Todo): string {
 }
 
 export function todoListTpl(todos: Todo[]): string {
+  // Maps a todo array to the above template and joins them in one long string
   return todos.map((t: Todo) => todoTpl(t)).join("");
 }

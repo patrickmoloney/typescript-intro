@@ -10,6 +10,7 @@ export class AppView {
   }
 
   public initialise() {
+    // Starts up a new control.
     this.control.initialise();
   }
 }
