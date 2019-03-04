@@ -1,12 +1,13 @@
 # Typescript & SASS Boilerplate
 
-## TODO:
+A simple todo applications foundation.
 
-- ~~Ensure all packages required are included~~
-- ~~Flesh out css (which will be converted to SASS during workshop)~~
-- ~~Add a bit more folder structure to `src` folder~~
-- Flesh out html to cater for full project
-- ~~Update webpack to dynamically add script/css to `index.html` and copy over to `dist` folder~~
-- Remove `tsconfig.json` from directory (we will initiate this in workshop).
+## References
 
-> ## Note this is a WIP
+- [HyunSeob's Typescript TodoMVC](https://github.com/HyunSeob/typescript-TodoMVC)
+- [Typescript's Docs](https://www.typescriptlang.org/docs/home.html)
+- [Typescript Design Patterns](https://github.com/torokmark/design_patterns_in_typescript)
+
+## Note
+
+see branch 'complete' for a rough estimation of the completed project.
